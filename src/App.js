@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import moment from "moment";
+import "./App.css";
 
 function App() {
+  const startingDate = "28/12/2020";
+  const tasks = ["Kitchen", "Toilets", "Corridors", "Bins"];
+  const housemates = ["Lyndon", "Jen", "Anais", "Martim"];
+  const startDate = moment(startingDate, "DD/MM/YYYY");
+  const now = moment();
+  const diff = now.diff(startDate, "weeks");
+  console.log("🚀 ~ file: App.js ~ line 11 ~ App ~ diff", diff)
+
+  const housematesWithTasks = housemates.map((housemate, i) => {
+    const housematesLength = housemates.length;
+    const currNum = (diff % housematesLength) + i;
+    return {
+      housemate,
+      task:
+      currNum >= 4
+          ? tasks[currNum % housematesLength]
+          : tasks[(diff % housematesLength) + i],
+    };
+  });
+
+  const weekStartingDate = moment(startingDate, "DD/MM/YYYY").add(String(diff), 'weeks').format('DD/MM');
+  const weekEndingDate = moment(startingDate, "DD/MM/YYYY").add(String(diff), 'weeks').add('6', 'days').format('DD/MM');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Your task of the week</h1>
+        <h2>{`${weekStartingDate} - ${weekEndingDate}`}</h2>
       </header>
+      <div className="app-content">
+        <div className="app-tasks">
+          {housematesWithTasks.map((h) => {
+            return (
+              <div className="app-task-column" key={h.task}>
+                <div className="app-task-row">{h.housemate}</div>
+                <div className="app-task-row">{h.task}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
