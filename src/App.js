@@ -8,7 +8,6 @@ function App() {
   const startDate = moment(startingDate, "DD/MM/YYYY");
   const now = moment();
   const diff = now.diff(startDate, "weeks");
-  console.log("🚀 ~ file: App.js ~ line 11 ~ App ~ diff", diff)
 
   const housematesWithTasks = housemates.map((housemate, i) => {
     const housematesLength = housemates.length;
