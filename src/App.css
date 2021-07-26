@@ -10,6 +10,15 @@ header {
 
 .app-tasks {
   display: flex;
+  flex-direction: column;
+}
+
+.app-task-date-title {
+  color: rgb(216, 58, 58);
+}
+
+.app-task-details-container {
+  display: flex;
 }
 
 .app-task-column {
@@ -22,11 +31,3 @@ header {
   text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
