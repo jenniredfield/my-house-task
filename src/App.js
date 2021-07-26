@@ -34,15 +34,19 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Your task of the week</h1>
+        <h1>Schuster Road 🏠</h1>
+        <h3>Your task of the week 🧹</h3>
       </header>
       <div className="app-content">
         <div className="app-tasks">
           {listWithHouseMateTasks.map(
-            ({ weekDateDetails, houseMatesWithTasks }) => {
+            ({ weekDateDetails, houseMatesWithTasks }, i) => {
               return (
                 <div className="app-task">
-                  <h2 className="app-task-date-title">{`${weekDateDetails.weekStartDate} - ${weekDateDetails.weekEndDate}`}</h2>
+                  <h2 className="app-task-date-title">
+                    {`${weekDateDetails.weekStartDate} - ${weekDateDetails.weekEndDate}`}
+                    {i === 1 ? ' - Current' : ''}
+                  </h2>
 
                   <div className="app-task-details-container">
                     {houseMatesWithTasks.map((h) => {
