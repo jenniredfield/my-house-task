@@ -1,14 +1,14 @@
-import moment from 'moment';
-import { createListWithDates } from './lib/utils';
-import './App.css';
+import moment from "moment";
+import { createListWithDates } from "./lib/utils";
+import "./App.css";
 
 function App() {
-  const startingDate = '28/12/2020';
-  const tasks = ['Corridors', 'Kitchen', 'Toilets', 'Bins & Supplies'];
-  const housemates = ['Lyndon', 'Jen', 'Anais', 'Martim'];
-  const startDate = moment(startingDate, 'DD/MM/YYYY');
+  const startingDate = "18/04/2022";
+  const tasks = ["Kitchen", "Toilets", "Corridors", "Bins & Supplies"];
+  const housemates = ["Jen", "Anais", "Lyndon", "Martim"];
+  const startDate = moment(startingDate, "DD/MM/YYYY");
   const now = moment();
-  const numberOfWeeksElapsed = now.diff(startDate, 'weeks');
+  const numberOfWeeksElapsed = now.diff(startDate, "weeks");
 
   const listWithHouseMateTasks = createListWithDates(
     housemates,
@@ -32,7 +32,7 @@ function App() {
                 <div className="app-task">
                   <h2 className="app-task-date-title">
                     {`${weekDateDetails.weekStartDate} - ${weekDateDetails.weekEndDate}`}
-                    {isSecond ? ' - Current' : ''}
+                    {isSecond ? " - Current" : ""}
                   </h2>
 
                   <div className="app-task-details-container">
@@ -40,7 +40,7 @@ function App() {
                       return (
                         <div
                           className={`app-task-column ${
-                            isSecond ? 'app-task-column-current' : ''
+                            isSecond ? "app-task-column-current" : ""
                           }`}
                           key={h.task}
                         >
