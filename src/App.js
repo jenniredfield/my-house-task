@@ -3,9 +3,9 @@ import { createListWithDates } from "./lib/utils";
 import "./App.css";
 
 function App() {
-  const startingDate = "18/04/2022";
+  const startingDate = "16/10/2023";
   const tasks = ["Kitchen", "Toilets", "Corridors", "Bins & Supplies"];
-  const housemates = ["Jen", "Anais", "Lyndon", "Martim"];
+  const housemates = ["Jen", "Martina", "Felipe", "Nick"];
   const startDate = moment(startingDate, "DD/MM/YYYY");
   const now = moment();
   const numberOfWeeksElapsed = now.diff(startDate, "weeks");
@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Schuster Road 🏠</h1>
+        <h1>Ashford Road 🏠</h1>
         <h3>Your task of the week 🧹</h3>
       </header>
       <div className="app-content">
